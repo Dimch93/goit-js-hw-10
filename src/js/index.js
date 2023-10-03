@@ -24,7 +24,7 @@ fetchBreeds()
     });
     new SlimSelect({
       select: breeSelect,
-      data: arrBreedsId,
+      // data: arrBreedsId,
     });
   })
   .catch(onFetchError);

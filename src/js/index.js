@@ -23,7 +23,7 @@ fetchBreeds()
       arrBreedsId.push({ text: element.name, value: element.id });
     });
     new SlimSelect({
-      // select: breeSelect,
+      select: breeSelect,
       data: arrBreedsId,
     });
   })

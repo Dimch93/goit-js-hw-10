@@ -1,5 +1,5 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
-import './styles.css';
+import '../css/styles.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
@@ -32,6 +32,7 @@ fetchBreeds()
 breeSelect.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
+  event.preventDefault();
   loader.classList.replace('is-hidden', 'loader');
   breeSelect.classList.add('is-hidden');
   catInfo.classList.add('is-hidden');

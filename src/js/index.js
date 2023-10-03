@@ -32,7 +32,6 @@ fetchBreeds()
 breeSelect.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
-  event.preventDefault();
   loader.classList.replace('is-hidden', 'loader');
   breeSelect.classList.add('is-hidden');
   catInfo.classList.add('is-hidden');
@@ -41,7 +40,7 @@ function onSelectBreed(event) {
   fetchCatByBreed(breedId)
     .then(data => {
       loader.classList.replace('loader', 'is-hidden');
-      breeSelect.classList.remove('is-hidden');
+      // breeSelect.classList.remove('is-hidden');
       const { url, breeds } = data[0];
 
       catInfo.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`;

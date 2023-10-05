@@ -12,23 +12,31 @@ const ref = {
 };
 const { breeSelect, catInfo, loader, error } = ref;
 
-loader.classList.replace('loader', 'is-hidden');
-error.classList.add('is-hidden');
+// loader.classList.replace('loader', 'is-hidden');
+// error.classList.add('is-hidden');
 catInfo.classList.add('is-hidden');
 
-let arrBreedsId = [];
-fetchBreeds()
-  .then(data => {
-    data.forEach(element => {
-      arrBreedsId.push({ text: element.name, value: element.id });
-    });
-    new SlimSelect({
-      select: breeSelect,
-      data: arrBreedsId,
-    });
-  })
-  .catch(onFetchError);
+// let arrBreedsId = [];
 
+updateSelect();
+
+function updateSelect(data) {
+  fetchBreeds(data)
+    .then(data => {
+      loader.classList.replace('loader', 'is-hidden');
+      let markSelect = data.map(({ name, id }) => {
+        return `<option value ='${id}'>${name}</option>`;
+        // data.forEach(element => {
+        //   arrBreedsId.push({ text: element.name, value: element.id });
+      });
+      breeSelect.insertAdjacentHTML('beforeend', markSelect);
+      new SlimSelect({
+        select: breeSelect,
+        // data: arrBreedsId,
+      });
+    })
+    .catch(onFetchError);
+}
 breeSelect.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {

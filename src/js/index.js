@@ -16,8 +16,6 @@ loader.classList.replace('loader', 'is-hidden');
 error.classList.add('is-hidden');
 catInfo.classList.add('is-hidden');
 
-// let arrBreedsId = [];
-
 updateSelect();
 
 function updateSelect(data) {
@@ -26,13 +24,10 @@ function updateSelect(data) {
       loader.classList.replace('loader', 'is-hidden');
       let markSelect = data.map(({ name, id }) => {
         return `<option value ='${id}'>${name}</option>`;
-        // data.forEach(element => {
-        //   arrBreedsId.push({ text: element.name, value: element.id });
       });
       breeSelect.insertAdjacentHTML('beforeend', markSelect);
       new SlimSelect({
         select: breeSelect,
-        // data: arrBreedsId,
       });
     })
     .catch(onFetchError);

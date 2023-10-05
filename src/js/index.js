@@ -12,8 +12,8 @@ const ref = {
 };
 const { breeSelect, catInfo, loader, error } = ref;
 
-// loader.classList.replace('loader', 'is-hidden');
-// error.classList.add('is-hidden');
+loader.classList.replace('loader', 'is-hidden');
+error.classList.add('is-hidden');
 catInfo.classList.add('is-hidden');
 
 // let arrBreedsId = [];
